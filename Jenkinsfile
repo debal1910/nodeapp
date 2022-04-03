@@ -17,8 +17,8 @@ pipeline{
             steps{
 		sh "aws --version"
 		sh "docker login -u AWS -p \$(aws ecr get-login-password --region us-east-1) 920445221516.dkr.ecr.us-east-1.amazonaws.com && sleep 2"
-                sh "docker build . -t 920445221516.dkr.ecr.us-east-1.amazonaws.com/debal-assignment"
-                sh "docker push 920445221516.dkr.ecr.us-east-1.amazonaws.com/debal-assignment:latest"
+                sh "docker build . -t 920445221516.dkr.ecr.us-east-1.amazonaws.com/assignment"
+                sh "docker push 920445221516.dkr.ecr.us-east-1.amazonaws.com/assignment"
             }
         }
      }
