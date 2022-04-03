@@ -21,5 +21,11 @@ pipeline{
                 sh "docker push 920445221516.dkr.ecr.us-east-1.amazonaws.com/assignment"
             }
         }
+
+        stage('Deploy to app'){
+            steps{
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'app host', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sh /home/ubuntu/test.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            }
+        }
      }
 }
